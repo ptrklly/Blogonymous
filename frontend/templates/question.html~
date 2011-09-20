@@ -14,7 +14,8 @@
 <textarea name="question" cols="50" rows="1" value="kldfj">Headline...</textarea>
 </br></br>
 <textarea name="body_text" cols="50" rows="10">Enter a brief description here...</textarea>
-<input type="submit" value="Submit!">
+</br></br>
+<input type="submit" value="Submit!" class="btn primary">
 </form>
 
 </div>

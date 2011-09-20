@@ -12,8 +12,9 @@ urlpatterns = patterns('frontend.views',
     (r'^answer/', CreateView.as_view(model=Response, success_url="/frontend/")),
     (r'^submit/(?P<entry_id>\d+)/$', 'submit'),
     (r'^submit/(?P<entry_id>\d+)/enter/', 'enter'),
-    (r'^single/(?P<entry_id>\d+)/', 'single'),
+    (r'^single/(?P<entry_id>\d+)/$', 'single'),
     (r'^question/$', 'question'),
     (r'^question/enter/$', 'question_submit'),
-    (r'^about', 'about')
+    (r'^about', 'about'),
+    (r'^single/(?P<entry_id>\d+)/upvote/', 'upvote'),                   
 )

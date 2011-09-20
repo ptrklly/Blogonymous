@@ -43,12 +43,19 @@ def upvote(request, entry_id):
     selected_response.save()
     return HttpResponseRedirect(reverse('frontend.views.single', args=(p.id,)))
 
+def blog_post(request, entry_id, answer_id):
+    p = get_object_or_404(Entry, pk=entry_id)
+    q = get_object_or_404(Response, pk=answer_id)
+    return render_to_response('post.html', {"p":p, "q":q})
+    
 
 def question(request):
     return render_to_response('question.html', context_instance=RequestContext(request))
 
 def question_submit(request):
     new = Entry.objects.create(question=request.POST['question'])
+    new.save()
+    new.desc = request.POST['desc']
     new.save()
     return HttpResponseRedirect(reverse('frontend.views.home'))
 

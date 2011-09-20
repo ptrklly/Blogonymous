@@ -22,18 +22,15 @@ color: blue;
 
 <h1>{{p.question}}</h1>
 <p>{{p.desc}}</p>
-{% for answer in q reversed %}
-<h4>{{answer.headline}}</h4>
-<p>{{answer.body_text|linebreaks|truncatewords:100}}</p>
-<a href="/frontend/post/{{p.id}}/{{answer.id}}/">See full post</a>
+<h4>{{.headline}}</h4>
+<p>{{answer.body_text|linebreaks}}</p>
 <form action="/frontend/single/{{ p.id }}/upvote/" method="post">
 {% csrf_token %}
 <input type="hidden" name="headline" id="headline{{ forloop.counter }}" value="{{ answer.id}}" />
 <input type="submit" class="btn primary" value="+1" />
 </form>
-{% endfor %}
 
-<a href="/frontend/single/{{p.id}}/">Return to posts</a>
+
 <a href="/frontend/">Go Home!</a>
 
 
